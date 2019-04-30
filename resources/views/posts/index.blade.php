@@ -2,9 +2,9 @@
 @section('content')
 <main role="main" class="inner cover">
         <h1 class="cover-heading">Сайт фотографа</h1>
-        <p class="lead">Деятельность в области фотографии и видеосьемке</p>
+        <p class="lead">Деятельность в области фотографии и видеосьемки</p>
         <p class="lead">
-          <a href="#" class="btn btn-lg btn-secondary">Подробнее</a>
+          <a href="{{URL::to('/zayavki')}}" class="btn btn-lg btn-secondary">Оставить заявку</a>
         </p>
       </main>
 @endsection

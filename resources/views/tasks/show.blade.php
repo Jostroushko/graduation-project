@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>show</title>
-</head>
-<body>
+@extends('pages')
+@section('content')
+<div class="row"> 
 <h2>{{$post->body}}</h2>
 <a href="/posts">назад</a>
-</body>
-</html>
+</div>
+@endsection

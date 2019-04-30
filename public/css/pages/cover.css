@@ -1,0 +1,158 @@
+body{
+background:url('../../images/grunge-texture-illustrator-4.png'), url('../../images/z8T0NxmRXfQ.jpg');
+background-size: cover;
+}
+table{
+  background-color: #ffffff !important;
+}
+.pagination {
+    display: inline-block !important;
+      padding: 0 !important;
+      margin: 0 !important;
+  
+  }
+  .pagination li{
+    display: inline !important;
+  }
+  .pagination li span,.pagination li a{
+    color: black !important;
+      float: left !important;
+      padding: 8px 16px !important;
+      text-decoration: none !important;
+      background-color: #d2ded7 !important;
+  }
+  .pagination li a:hover{
+    background-color: rgba(0,0,0,.075)!important;
+  }
+  .pagination .active span{
+    background-color: rgb(52, 58, 64) !important;
+    color: white !important;
+  }
+  .pagination .disabled span{
+    background-color: #909d96 !important;
+  }
+  
+  .masthead {
+      margin-bottom: 2rem;
+      background-image: url('../../images/pipes.png') !important;
+  
+    }
+    
+    .masthead-brand {
+      margin-bottom: 0;
+      margin-right: 50px;
+    }
+    
+    .nav-masthead .nav-link {
+      padding: .25rem 0;
+      font-weight: 700;
+      color: rgb(52, 58, 64);
+      background-color: #ced4da00;
+      border-bottom: .25rem solid transparent;
+      border-top: .25rem solid transparent;
+    }
+    
+    .nav-masthead .nav-link:hover,
+    .nav-masthead .nav-link:focus {
+      border-bottom-color:  rgb(52, 58, 64);
+      border-top-color:  rgb(52, 58, 64);
+    }
+    
+    .nav-masthead .nav-link + .nav-link {
+      margin-left: 1rem;
+    }
+    
+    .nav-masthead .active {
+      color: #0097a7;
+      border-bottom-color: #0097a794;
+    }
+    
+    @media (min-width: 48em) {
+      .masthead-brand {
+        float: left;
+      }
+      .nav-masthead {
+        float: right;
+      }
+    }
+    .mastfoot {
+      color: rgba(3, 3, 3, 0.62);
+    }
+    .mastfoot .inner p a{
+        color:gray;
+    }
+    .mastfoot .inner p a:hover{
+      color: #007bff;
+  }
+  
+  .submenu {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    top: 100%;
+    width: 150px;
+    padding: 15px 0 15px;
+    margin-top: 5px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(0,0,0,.2);
+    box-sizing: border-box;
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(-50%, 20px);
+    transition: .3s;
+  }
+  .navbar-nav > li:hover .submenu {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  .submenu a {
+    font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  transition: .3s linear;
+  color: #343a40;
+  }
+  .submenu li{
+    list-style: none;
+  }
+  .submenu a:hover {background: #e8e8e8;
+  border: none;}
+  
+  .about{
+      margin: 4em 0;
+      padding: 1em;
+      position: relative;
+     }
+     .about h1{
+      color:#F97300;
+      margin: 2em;
+     }
+     .about img{
+      height: 100%;
+         width: 100%;
+         border-radius: 50%
+     }
+     .about span{
+      display: block;
+      color: #888;
+      position: absolute;
+      left: 115px;
+     }
+     .about .desc{
+      padding: 2em;
+      border-left:4px solid #10828C;
+     }
+     .about .desc h3{
+      color: #10828C;
+     }
+     .about .desc p{
+      line-height:2;
+      color:#888;
+     }
+     .adm{
+         background-image: url('../../images/pipes.png');
+     }
+     

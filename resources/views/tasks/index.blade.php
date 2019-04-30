@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>test</title>
-</head>
-<body>
-    <ul>
-        @foreach ($posts as $post)
-            <li>
+@extends('pages')
+@section('content')
+<ul class="list-group">
+       @foreach ($posts as $post)
+        <li class="list-group-item">
                 <a href="posts/{{$post->id}}">
                 {{ $post->body }}</a>
             </li>
         @endforeach
     </ul>
-</body>
-</html>
+@endsection

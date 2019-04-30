@@ -16,6 +16,7 @@ Route::get('/posts/{post}', 'tasksController@show');
 Route::get('/zayavki', 'zayavkiController@index');
 Route::post('/zayavki', 'zayavkiController@store');
 Route::get('/portfolio', 'portfolioController@index');
+Route::get('/portfolio/{portfolio}', 'portfolioController@pics');
 Route::get('/contacts', 'contactsController@index');
 Route::get('/price', 'priceController@index');
 

@@ -8,7 +8,12 @@ use Illuminate\Http\Request;
 class portfolioController extends Controller
 {
     public function index(){
-    	$portfolio= Portfolio::all();
-    	return view('portfolio.index', compact('portfolio'));
+        $category= Category::all();
+    	return view('portfolio.index', compact('category'));
+    }
+    public function pics($id){
+        $portfolio= Portfolio::where('category_id', '=', $id)
+                               ->get();
+    	return view('portfolio.pics', compact('portfolio'));
     }
 }

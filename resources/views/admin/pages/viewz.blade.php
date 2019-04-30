@@ -1,7 +1,7 @@
 @extends('admin.pages.page')
 @section('content')
 @include('admin.pages.nav')
-<div class="container">
+{{-- <div class="container"> --}}
          @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}
@@ -53,7 +53,7 @@
                                     {{ $zayavkis->links() }}
                        </div>
   
-    </div>
+    {{-- </div> --}}
 
 @endsection
 

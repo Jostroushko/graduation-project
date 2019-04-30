@@ -1,6 +1,6 @@
-@extends('layout')
+@extends('pages')
 @section('content')
-<div class="row">
+<div class="contaner">
                                
         <table class="table table-hover">
                 <thead>
@@ -20,7 +20,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $p->title }}</td>
                 <td>{{ $p->body }}</td>
-                <td>{{ $p->cash }}</td>
+                <td>{{ $p->cash }} &#8381;</td>
             </tr>
         @endforeach
                 </tbody>
