@@ -8,7 +8,9 @@
             <div class="header-h3">
                     <h3>Оставить заявку</h3>
                   </div>
-
+<div class="container">
+    <div class="row ">
+        <div class="col">
         {!! Form::open() !!}
 
         {!!Form::label('email', 'E-mail:')!!}
@@ -19,13 +21,20 @@
 
         {!!Form::label('tema', 'Тема заявки:')!!}
         {!!Form::input('text','tema','',['class'=>'form-control', 'placeholder'=>'Тема заявки'])!!}
+        {!!Form::label('price_id','Вид заявки: ')!!}
         {!!Form::select('price_id', $price_list, null, ['class' => 'form-control'])!!}
+    </div>
+    <div class="col">
+       
         {!!Form::label('z_text', 'Текст заявки:')!!}
         {!!Form::textarea('z_text','',['class'=>'form-control', 'placeholder'=>'Текст заявки'])!!}
 
         {!!Form::submit('Отправить заявку',['class'=>'btn btn-primary btn-lg btn-block'])!!}
 
         {!! Form::close() !!}
+    </div>
+    </div>
+    </div>
  @if ($errors->any())
  
  <div id="my-alert" class="alert alert-danger alert-dismissible fade show" role="alert">

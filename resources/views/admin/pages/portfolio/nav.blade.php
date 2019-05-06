@@ -24,8 +24,10 @@
       <li class="nav-item {{ Request::is('admin/works*') ? 'active' : '' }}">
               <a class="nav-link" href="">Работы</a>
               <ul class="submenu">
-                <li><a href="{{URL::to('admin/portfolio/')}}">Портфолио</a></li>
+                <li><a href="{{URL::to('admin/works/')}}">Портфолио</a></li>
+                <li><a href="{{URL::to('admin/works/create')}}">Добавить работу</a></li>
                 <li><a href="{{URL::to('admin/category/')}}">Категории</a></li>
+                <li><a href="{{URL::to('admin/category/create')}}">Создать категорию</a></li>
               </ul>
       </li>
     </ul>
