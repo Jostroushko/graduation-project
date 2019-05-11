@@ -44,6 +44,7 @@ class CRUDCategoryController extends Controller
 
         $category= new Category();
         $category->title=$request->title;
+        $category->path=$request->file('path')->store('uploads', 'public');
         $category->save();
         $request->session()->flash('success', 'Категория успешно добавлена');
         // return view('admin.pages.newsshow');
@@ -89,6 +90,7 @@ class CRUDCategoryController extends Controller
 
         $category= Category::find($id);
         $category->title=$request->title;
+        $category->path=$request->file('path')->store('uploads', 'public');
         $category->save();
         $request->session()->flash('success', 'Пост успешно обновлен');
         return redirect()->route('category.show',$category->id);

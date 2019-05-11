@@ -1,13 +1,37 @@
 @extends('pages')
 @section('content')
 {{-- здесь должны находиться фото --}}
-<div class="row"> 
-    @foreach ($portfolio as $p)
-    <div class="col-lg-3 col-md-4 col-6 vis">
-        <h2>{{$p->title}}</h2>  
-        <img class="img-fluid" src="{{asset('/storage/'.$p->path)}}" alt=" ">
-        <p class="pc-title">{{$p->category->title}}</p>
-    </div> 
-    @endforeach
+<div class="content"> 
+    
+    <div class="row">
+        <div class="col"> 
+               
+                       @foreach ($portfolio as $p)  
+                       <img class="image" title="Нажмите для увеличения изображения" src="{{asset('/storage/'.$p->path)}}" alt=" ">
+                       @endforeach
+    </div>
+</div> 
+    
 </div>
+<script>
+$(document).ready(function() { // Ждём загрузки страницы
+	
+	$(".image").click(function(){	// Событие клика на маленькое изображение
+	  	var img = $(this);	// Получаем изображение, на которое кликнули
+		var src = img.attr('src'); // Достаем из этого изображения путь до картинки
+		$("body").append("<div class='popup'>"+ //Добавляем в тело документа разметку всплывающего окна
+						 "<div class='popup_bg'></div>"+ // Блок, который будет служить фоном затемненным
+						 "<img src='"+src+"' class='popup_img' />"+ // Само увеличенное фото
+						 "</div>");
+		$(".popup").fadeIn(200); // Медленно выводим изображение
+		$(".popup_bg").click(function(){	// Событие клика на затемненный фон	   
+			$(".popup").fadeOut(200);	// Медленно убираем всплывающее окн	
+      setTimeout(function() {	// Выставляем таймер
+			  $(".popup").remove(); // Удаляем разметку всплывающего окна
+			}, 200);
+		});
+	});
+	
+});
+    </script>
  @endsection

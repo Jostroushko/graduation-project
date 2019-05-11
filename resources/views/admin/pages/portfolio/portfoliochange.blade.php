@@ -12,7 +12,8 @@
       <div class="form-group">
             {!!Form::label('about','Текст')!!}
             {!!Form::textarea('about',null,['class'=>'form-control'])!!}
-      </div>
+     
       {!!Form::submit('Опубликовать',['class'=>'btn btn-primary btn-lg btn-block'])!!}
     {!!Form::close()!!}
+   </div>
 @endsection

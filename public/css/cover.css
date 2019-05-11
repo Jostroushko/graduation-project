@@ -27,8 +27,8 @@ a:hover {
 html,
 body {
   height: 100%;
-   
-  background:url('../images/grunge-texture-illustrator-4.png'), url('../images/iJ3XLczvnow.jpg');
+  font-family: 'Cormorant SC', serif;
+  background:url('../images/iJ3XLczvnow.jpg');
   background-size: cover;
 }
 

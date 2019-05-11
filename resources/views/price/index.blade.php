@@ -1,6 +1,6 @@
 @extends('pages')
 @section('content')
-<div class="contaner">
+<div class="container">
                                
         <table class="table table-hover">
                 <thead>

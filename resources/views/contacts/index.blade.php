@@ -1,6 +1,7 @@
 @extends('pages')
 @section('content')
 <div class="container" style="background:white">
+   
     <h2>Информация</h2>
 
 <p>Регион: г. Черногорск, Республика Хакасия</p>
@@ -17,5 +18,4 @@
 
 <p>График работы: Пн-Пт: 9-20, Сб-Вс: 11-14</p>
 </div>
-
 @endsection
