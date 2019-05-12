@@ -1,15 +1,14 @@
 @extends('admin.pages.page')
 @section('content')
-@include('admin.pages.nav')
-<div class="container">
-        @if (session()->has('success-del'))
-        <div class="alert alert-denger">{{ session('success-del') }}</div>
-    @endif 
-        
- 
-  <div class="row">
-                               
-    <table class="table table-hover">
+@include('admin.nav')
+<div class="col-10 adm-content adm">
+    @if (session()->has('success-del'))
+    <div class="alert alert-denger">{{ session('success-del') }}</div>
+@endif 
+    
+    <div class="col desc">
+        <div class="table-responsive">
+        <table class="table table-hover">
             <thead>
               <tr>
                 <th>№</th>
@@ -36,8 +35,19 @@
     @endforeach
             </tbody>
               </table>
+        </div>
                 {{ $price->links() }}
+    
+    </div>
    </div>
+
 </div>
+
+
+<div class="container">
+        @if (session()->has('success-del'))
+        <div class="alert alert-denger">{{ session('success-del') }}</div>
+    @endif 
+
 @endsection
 

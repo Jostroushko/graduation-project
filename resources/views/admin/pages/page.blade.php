@@ -10,7 +10,9 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <SCRIPT type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></SCRIPT>
+    <script type="text/javascript" src="{{ URL::asset('js/portfolio.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+SC" rel="stylesheet"> 
     <!-- Custom styles for this template -->
     <link href="..\css\admin\cover.css" rel="stylesheet">
     
@@ -18,8 +20,8 @@
 
   <body class="text-center">
 
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-      @include('../../layouts.nav')
+    <div class="container">
+      {{-- @include('../../layouts.nav') --}}
       
       @yield('content')
 

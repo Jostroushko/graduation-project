@@ -1,21 +1,4 @@
-@extends('pages')
-@section('content')
-{{-- здесь должны находиться фото --}}
-<div class="content"> 
-    
-    <div class="row">
-        <div class="col"> 
-               
-                       @foreach ($portfolio as $p)  
-                       <img class="image" title="Нажмите для увеличения изображения" src="{{asset('/storage/'.$p->path)}}" alt=" ">
-                       @endforeach
-    </div>
-</div> 
-    
-</div>
-{{-- <script>
 $(document).ready(function() { // Ждём загрузки страницы
-	
 	$(".image").click(function(){	// Событие клика на маленькое изображение
 	  	var img = $(this);	// Получаем изображение, на которое кликнули
 		var src = img.attr('src'); // Достаем из этого изображения путь до картинки
@@ -33,5 +16,3 @@ $(document).ready(function() { // Ждём загрузки страницы
 	});
 	
 });
-    </script> --}}
- @endsection

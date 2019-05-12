@@ -11,12 +11,5 @@
                 <p><a class="links" href="/posts">Назад...</a></p>
                 </div>
             </div>
-{{-- <div class="text-left"> 
-<h2></h2>
-
-<p></p>
-
-<p>Назад...</p>
-</div> --}}
 </div>
 @endsection

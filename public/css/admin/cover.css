@@ -1,3 +1,18 @@
+html, body{
+  width: 100%;
+  height: auto;
+  font-family: 'Cormorant SC', serif;
+}
+.row {
+margin-right: 0px !important;
+  margin-left: 0px !important;
+  }
+.back-link{
+  border-top: 1px solid #888 !important;
+}
+  .text-center {
+    text-align: left !important;
+    }
 .pagination {
   display: inline-block !important;
     padding: 0 !important;
@@ -147,4 +162,97 @@ border: none;}
    .adm{
        background-image: url('../../images/pipes.png');
    }
-  
+   .table {
+   background-color: #ffffffa6;
+    }
+   /*menu changes*/
+   .p-2 {
+    width: 30%;
+    border-bottom: 2px solid #888;
+    }
+.navbar-nav {
+  /* display: flex; */
+  display: inline-block;
+  width: 100% !important;
+}
+
+.adm-content {
+  text-align: center !important;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    /* display: flex !important; */
+    display: block !important;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 100%  !important;
+  }
+}
+
+.navbar {
+  /* padding: .5rem 1rem; */
+  padding: 0.1rem 1rem;
+  width: 100%;
+}
+
+.navbar-collapse {
+  /* flex-grow: 1; */
+  flex-grow: 0;
+}
+ /*gallery*/
+ .image {
+  border: 3px solid rgb(255, 255, 255);
+  width: 60%;
+ margin:30px;
+ cursor:zoom-in;
+}
+.news-pic{
+  width: 200px;
+  height: auto;
+  /* float: left; */
+}
+.image:hover{
+ width: 75%;
+ transition: .5s;
+}
+
+.popup {
+ position: absolute;
+ height:100%;
+ width:100%;
+ top:0;
+ left:0;
+ display:none;
+ text-align:center;
+}
+
+.popup_bg {
+ background:rgba(0,0,0,0.3);
+ position:fixed;
+ z-index:1;
+ top: 0;
+ left: 0;
+ bottom: 0;
+ right: 0;
+ width: auto;
+ height: auto;
+}
+
+
+.popup_img {
+ position: fixed;
+ z-index:2;
+ left: 50%;
+ top: 50%;
+ transform: translate(-50%,-50%);
+ max-height: 90%;
+}
+
+.popup_img {
+ pointer-events: none;
+}

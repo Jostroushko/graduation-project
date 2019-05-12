@@ -1,6 +1,6 @@
 @extends('admin.pages.page')
 @section('content')
-@include('admin.pages.nav')
+@include('admin.nav')
 <div class="container">
         <div class="row">
                 @if (session('status'))

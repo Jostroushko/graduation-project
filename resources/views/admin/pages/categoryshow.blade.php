@@ -1,6 +1,6 @@
 @extends('admin.pages.page')
 @section('content')
-@include('admin.pages.nav')
+@include('admin.nav')
 <div class="container">
         @if (session()->has('success-del'))
         <div class="alert alert-denger">{{ session('success-del') }}</div>
