@@ -21,8 +21,7 @@
               </tr>
             </thead>
             <tbody>
-             
-            
+                      
                 @foreach ($price as $p)
         <tr>
             <td>{{ $loop->iteration }}</td>
@@ -37,17 +36,12 @@
               </table>
         </div>
                 {{ $price->links() }}
-    
-    </div>
+        </div>
    </div>
-
 </div>
-
-
 <div class="container">
         @if (session()->has('success-del'))
         <div class="alert alert-denger">{{ session('success-del') }}</div>
     @endif 
-
 @endsection
 

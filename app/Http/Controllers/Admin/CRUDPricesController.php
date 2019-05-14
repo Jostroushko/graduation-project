@@ -40,7 +40,7 @@ class CRUDPricesController extends Controller
         $this->validate($request,[
             'title'=>'required|max:255',
             'body'=>'required',
-            'cash'=>'required',
+            'cash'=>'required|numeric',
             
         ]);
 
@@ -49,7 +49,7 @@ class CRUDPricesController extends Controller
         $price->body=$request->body;
         $price->cash=$request->cash;
         $price->save();
-        $request->session()->flash('success', 'Пост успешно опубликован');
+        $request->session()->flash('success', 'Прейскурант успешно обновлен');
         // return view('admin.pages.newsshow');
         return redirect()->route('price.show',$price->id);
     }
@@ -90,7 +90,7 @@ class CRUDPricesController extends Controller
         $this->validate($request,[
             'title'=>'required|max:255',
             'body'=>'required',
-            'cash'=>'required',
+            'cash'=>'required|numeric',
             
         ]);
 

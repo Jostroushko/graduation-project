@@ -79,9 +79,9 @@ class CRUDPortfolioController extends Controller
      */
     public function edit($id)
     {
-        $category_list = Category::pluck('id', 'title')->toArray();;
+        $category_list = Category::pluck( 'title', 'id')->toArray();
         $portfolio = Portfolio::find($id);
-        return view('admin.pages.portfolio.edit')->with(compact('portfolio,category_list'));
+        return view('admin.pages.portfolio.edit')->with(compact('portfolio', 'category_list'));
     }
 
     /**
@@ -102,7 +102,7 @@ class CRUDPortfolioController extends Controller
 
             
         ]);
-
+      
         $portfolio= new Portfolio();
         $portfolio->title=$request->title;
         $portfolio->category_id=$request->category_id;
@@ -110,7 +110,7 @@ class CRUDPortfolioController extends Controller
         $portfolio->about=$request->about;
         $portfolio->save();
         $request->session()->flash('success', 'Успешно обновлен');
-        return redirect()->route('portfolio.show',$portfolio->id)->with(compact('category'));
+        return redirect()->route('portfolio.show',$portfolio->id)->with(compact('portfolio', 'category_list'));
     }
 
     /**
