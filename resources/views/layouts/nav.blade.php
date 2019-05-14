@@ -1,6 +1,6 @@
 <header class="masthead mb-auto">
         <div class="inner">
-          {{-- <h3 class="masthead-brand">Сайт фотографа</h3> --}}
+          <h3 class="masthead-brand">Фотограф Р.А. Дельвер</h3>
           <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link {{ Request::is('/*') ? 'active' : '' }}" href="{{URL::to('/')}}">Главная</a>
             <a class="nav-link {{ Request::is('portfolio*') ? 'active' : '' }}" href="{{URL::to('/portfolio')}}">Работы</a>

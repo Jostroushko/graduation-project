@@ -13,7 +13,7 @@
               </div>
               <div class="form-group">
                     {!!Form::label('body','Текст')!!}
-                    {!!Form::textarea('body','',['class'=>'form-control'])!!}
+                    {!!Form::textarea('body','',['class'=>'form-control', 'id' => 'editor-body'])!!}
                     {!!Form::file('path') !!}
                     
               </div>

@@ -3,7 +3,7 @@
 <div class="container">
         <div class="news-block text-left img-thumbnail">
                 <div><h3>{{$post->title}}</h3>
-                    <div>{{$post->body}}</div>
+                    <p>{!!$post->body!!}</p>
                     <img class="img-thumbnail rounded float-right post-img" src="{{asset('/storage/'.$post->path)}}" alt=" ">
                 </div>
                 <div class="news-footer">

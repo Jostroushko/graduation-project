@@ -1,4 +1,4 @@
-@extends('admin.pages.newsp.news')
+@extends('admin.pages.page')
 @section('content')
 @include('admin.nav')
 <div class="col-10 adm-content adm">
@@ -12,7 +12,7 @@
               </div>
               <div class="form-group">
                     {!!Form::label('body','Текст')!!}
-                    {!!Form::textarea('body',null,['class'=>'form-control'])!!}
+                    {!!Form::textarea('body',null,['class'=>'form-control', 'id' => 'editor-body'])!!}
               </div>
               {!!Form::submit('Опубликовать пост',['class'=>'btn btn-primary btn-lg btn-block'])!!}
         {!!Form::close()!!}

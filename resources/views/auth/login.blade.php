@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col">
             <div class="panel panel-default">
-                <div class="panel-heading">Вход</div>
+                <h2 class="panel-heading">Вход</h2>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
@@ -14,9 +14,9 @@
                         
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail адрес</label>
+                            <label for="email" class="col">E-Mail адрес</label>
 
-                            <div class="col-md-6">
+                            <div class="col">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
@@ -28,9 +28,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Пароль</label>
+                            <label for="password" class="col">Пароль</label>
 
-                            <div class="col-md-6">
+                            <div class="col">
                                 <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -52,14 +52,14 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
+                            <div class="col">
                                 <button type="submit" class="btn btn-primary">
                                     Войти
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                {{-- <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Забыли пароль?
-                                </a>
+                                </a> --}}
                             </div>
                         </div>
                     </form>

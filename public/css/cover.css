@@ -27,7 +27,7 @@ a:hover {
 html,
 body {
   height: 100%;
-  font-family: 'Cormorant SC', serif;
+  font-family: 'Cormorant SC', serif !important;
   background:url('../images/iJ3XLczvnow.jpg');
   background-size: cover;
 }
