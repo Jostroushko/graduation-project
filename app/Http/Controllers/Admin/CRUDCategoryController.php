@@ -102,7 +102,7 @@ class CRUDCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $category= Category::find($id);
         $category->delete();

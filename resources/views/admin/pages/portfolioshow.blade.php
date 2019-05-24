@@ -11,7 +11,7 @@
         
             <div class="p-2" >
         <img class="image" title="Нажмите для увеличения изображения" src="{{asset('/storage/'.$p->path)}}" alt=" ">
-        <a href="{{URL::to('admin/portfolio/'.$p->id.'/edit')}}">редактировать</a>
+        <a href="{{URL::to('admin/portfolio/'.$p->id)}}">редактировать</a>
       </div>
       
      @endforeach

@@ -16,7 +16,13 @@ body {
   background:url('../images/iJ3XLczvnow.jpg');
   background-size: cover;
 }
-
+.masthead-brand {
+  margin-bottom: 0;
+  margin-right: 50px;
+}
+.cover-container {
+  max-width: 60em;
+}
   .header-h3 {
     text-align: center;
     margin-bottom: .5rem;

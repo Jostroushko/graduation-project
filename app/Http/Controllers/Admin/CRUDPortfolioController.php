@@ -119,11 +119,11 @@ class CRUDPortfolioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $portfolio= portfolio::find($id);
         $portfolio->delete();
         $request->session()->flash('success-del', 'Работа успешно удалена');
-        return view('admin.pages.portfolioshow');
+        return redirect()->back();
     }
 }

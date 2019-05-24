@@ -112,6 +112,8 @@ class CRUDPostsController extends Controller
         $post= post::find($id);
         $post->delete();
         $request->session()->flash('success-del', 'Пост успешно удален');
-        return view('admin.pages.newsshow');
+        // return view('admin.pages.newsshow');
+        return redirect('admin/posts');
+        
     }
 }

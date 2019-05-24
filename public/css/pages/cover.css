@@ -24,6 +24,7 @@ table{
 .container{
   margin-top: 1%;
 }
+
 .pagination {
     display: inline-block !important;
       padding: 0 !important;
@@ -50,6 +51,12 @@ table{
   .pagination .disabled span{
     background-color: #909d96 !important;
   }
+  .cover-container {
+    max-width: 60em;
+  }
+  .cover {
+    padding: 0 1.5rem;
+  }
   .gal{
     width: 100%;
     height: auto;
@@ -61,6 +68,7 @@ table{
   .masthead-brand {
     margin-bottom: 0;
     margin-right: 50px;
+    color: rgb(255, 254, 250);
   }
   
   .nav-masthead .nav-link {
