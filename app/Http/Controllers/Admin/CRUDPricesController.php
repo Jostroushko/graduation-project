@@ -115,6 +115,7 @@ class CRUDPricesController extends Controller
         $price= Price::find($id);
         $price->delete();
         $request->session()->flash('success-del', 'Успешное удаление');
-        return view('admin.pages.priceshow');
+        // return view('admin.pages.priceshow');
+        return redirect('admin/price');
     }
 }

@@ -107,6 +107,7 @@ class CRUDCategoryController extends Controller
         $category= Category::find($id);
         $category->delete();
         $request->session()->flash('success-del', 'Категория успешно удалена');
-        return view('admin.pages.categoryshow');
+        // return view('admin.pages.categoryshow');
+        return redirect('admin/category');
     }
 }
