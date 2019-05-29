@@ -28,7 +28,8 @@ html,
 body {
   height: 100%;
   font-family: 'Cormorant SC', serif !important;
-  background:url('../images/iJ3XLczvnow.jpg');
+  /* background:url('../images/iJ3XLczvnow.jpg'); */
+   background:url('../storage/uploads/backpic.jpg');
   background-size: cover;
 }
 

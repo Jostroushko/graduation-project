@@ -103,7 +103,7 @@ class CRUDPortfolioController extends Controller
             
         ]);
       
-        $portfolio= new Portfolio();
+        $portfolio= Portfolio::find($id);
         $portfolio->title=$request->title;
         $portfolio->category_id=$request->category_id;
         $portfolio->path=$request->file('path')->store('uploads', 'public');
@@ -121,7 +121,7 @@ class CRUDPortfolioController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $portfolio= portfolio::find($id);
+        $portfolio= Portfolio::find($id);
         $portfolio->delete();
         $request->session()->flash('success-del', 'Работа успешно удалена');
         return redirect()->back();

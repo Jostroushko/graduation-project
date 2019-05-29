@@ -41,6 +41,10 @@ Route::prefix('admin')->middleware('auth')->group(function(){
     Route::resource('/posts', 'Admin\CRUDPostsController');
     Route::resource('/portfolio', 'Admin\CRUDPortfolioController');
     Route::resource('/category', 'Admin\CRUDCategoryController');
+    Route::get('/backpic/{backpic}/edit', 'Admin\UpdateBackpicController@edit')->name('backpic.edit');
+    Route::put('/backpic/{backpic}', 'Admin\UpdateBackpicController@update')->name('backpic.update');
+    Route::get('/updinfo/{updinfo}/edit', 'Admin\UpdateInfoController@edit')->name('updinfo.edit');
+    Route::put('/updinfo/{updinfo}', 'Admin\UpdateInfoController@update')->name('updinfo.update');
    
     Route::resource('/price', 'Admin\CRUDPricesController');
 });

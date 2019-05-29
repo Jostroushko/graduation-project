@@ -21,6 +21,8 @@
         <li class="nav-item {{ Request::is('admin/portfolio/create*') ? 'active' : '' }}"><a class="nav-link"  href="{{URL::to('admin/portfolio/create')}}">Добавить работу</a></li>
         <li class="nav-item {{ Request::is('admin/category*') ? 'active' : '' }}"><a class="nav-link"  href="{{URL::to('admin/category/')}}">Категории</a></li>
         <li class="nav-item {{ Request::is('admin/category/create*') ? 'active' : '' }}"><a class="nav-link"  href="{{URL::to('admin/category/create')}}">Создать категорию</a></li>
+        <li class="nav-item {{ Request::is('admin/backpic/1/edit*') ? 'active' : '' }}"><a class="nav-link"  href="{{URL::to('admin/backpic/1/edit')}}">Обновить фон</a></li>
+        <li class="nav-item {{ Request::is('admin/updinfo/1/edit*') ? 'active' : '' }}"><a class="nav-link"  href="{{URL::to('admin/updinfo/1/edit')}}">Обновить информацию о себе</a></li>
         <li class="nav-item back-link"><a class="nav-link "  href="{{URL::to('/')}}"> Назад на сайт</a></li>
       </ul>
   </div>
