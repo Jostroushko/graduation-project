@@ -28,13 +28,15 @@ Route::get('logout', 'Auth\LoginController@logout');
 
 
 
-Route::match(['get', 'post'], 'register', function () {
-    return redirect('/');
-});
+// Route::match(['get', 'post'], 'register', 's');
 
 
+// тут обычные пользователи
+// Route::prefix('home')->middleware('auth')->group(function(){
+//     Route::get('/', 'Admin\IndexController@index');
+// });
 
-Route::prefix('admin')->middleware('auth')->group(function(){
+Route::prefix('admin')->middleware('role:ROLE_ADMIN')->group(function(){
     Route::get('/', 'Admin\IndexController@index');
     Route::get('/zayavki', 'Admin\IndexController@zayavki');
     Route::delete('/zayavki/delete/{id}', 'Admin\IndexController@delete')->name('zayavka.delete');
