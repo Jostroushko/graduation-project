@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
     // доступ обычным пользователям
     Route::prefix('home')->group(function(){
-        Route::get('/', 'Admin\IndexController@index');
+        Route::get('/', 'Regular\IndexController@index');
+
     });
 });
