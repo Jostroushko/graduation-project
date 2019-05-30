@@ -25,28 +25,24 @@ Auth::routes();
 
 Route::get('logout', 'Auth\LoginController@logout');
 
-
-
-
-// Route::match(['get', 'post'], 'register', 's');
-
-
-// тут обычные пользователи
-// Route::prefix('home')->middleware('auth')->group(function(){
-//     Route::get('/', 'Admin\IndexController@index');
-// });
-
-Route::prefix('admin')->middleware('role:ROLE_ADMIN')->group(function(){
-    Route::get('/', 'Admin\IndexController@index');
-    Route::get('/zayavki', 'Admin\IndexController@zayavki');
-    Route::delete('/zayavki/delete/{id}', 'Admin\IndexController@delete')->name('zayavka.delete');
-    Route::resource('/posts', 'Admin\CRUDPostsController');
-    Route::resource('/portfolio', 'Admin\CRUDPortfolioController');
-    Route::resource('/category', 'Admin\CRUDCategoryController');
-    Route::get('/backpic/{backpic}/edit', 'Admin\UpdateBackpicController@edit')->name('backpic.edit');
-    Route::put('/backpic/{backpic}', 'Admin\UpdateBackpicController@update')->name('backpic.update');
-    Route::get('/updinfo/{updinfo}/edit', 'Admin\UpdateInfoController@edit')->name('updinfo.edit');
-    Route::put('/updinfo/{updinfo}', 'Admin\UpdateInfoController@update')->name('updinfo.update');
-   
-    Route::resource('/price', 'Admin\CRUDPricesController');
+Route::group(['middleware' => ['auth']], function () {
+    // доступ только админу
+    Route::prefix('admin')->middleware('role:ROLE_ADMIN')->group(function(){
+        Route::get('/', 'Admin\IndexController@index');
+        Route::get('/zayavki', 'Admin\IndexController@zayavki');
+        Route::delete('/zayavki/delete/{id}', 'Admin\IndexController@delete')->name('zayavka.delete');
+        Route::resource('/posts', 'Admin\CRUDPostsController');
+        Route::resource('/portfolio', 'Admin\CRUDPortfolioController');
+        Route::resource('/category', 'Admin\CRUDCategoryController');
+        Route::get('/backpic/{backpic}/edit', 'Admin\UpdateBackpicController@edit')->name('backpic.edit');
+        Route::put('/backpic/{backpic}', 'Admin\UpdateBackpicController@update')->name('backpic.update');
+        Route::get('/updinfo/{updinfo}/edit', 'Admin\UpdateInfoController@edit')->name('updinfo.edit');
+        Route::put('/updinfo/{updinfo}', 'Admin\UpdateInfoController@update')->name('updinfo.update');
+    
+        Route::resource('/price', 'Admin\CRUDPricesController');
+    });
+    // доступ обычным пользователям
+    Route::prefix('home')->group(function(){
+        Route::get('/', 'Admin\IndexController@index');
+    });
 });
