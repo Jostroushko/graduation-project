@@ -1,5 +1,6 @@
 @extends('homereg')
 @section('content')
+@include('regularuser.nav')
 <main role="main"">
     <div class="form-group">
             @if (session()->has('message'))
@@ -11,21 +12,36 @@
 <div class="container">
     <div class="row ">
         <div class="col">
+          
         {!! Form::open() !!}
+        <p>Ваш email: {{Auth::user()->email}}</p>
 
-        {!!Form::label('email', 'E-mail:')!!}
-        {!!Form::input('email','email','',['class'=>'form-control', 'placeholder'=>'E-mail'])!!}
+        @if (Auth::user()->tel !=="")
+            <p>Ваш номер телефона: {{Auth::user()->tel}}</p>
+            @else
+            {!!Form::label('doptel', 'Введите номер телефона:')!!}
+            {!!Form::input('text','doptel','',['class'=>'form-control', 'placeholder'=>'Номер телефона'])!!}  
+        @endif
 
-        {!!Form::label('fio', 'ФИО')!!}
-        {!!Form::input('text','fio','',['class'=>'form-control', 'placeholder'=>'ФИО'])!!}
+        @if (Auth::user()->fio !== "")
+        <p>Ваше имя: {{Auth::user()->fio}}</p>
+        @else
+        {!!Form::label('fio', 'Введите ФИО:')!!}
+        {!!Form::input('text','fio','',['class'=>'form-control', 'placeholder'=>'ФИО'])!!} 
+        @endif
+        
+    </div>
+    <div class="col">
+       {!!Form::label('price_id','На что похож ваш заказ: ')!!}
+        {{-- {{ Form::select('price_id', $price_list,['class' => 'form-control'])}} --}}
+        <select name="price_id" class="form-control">
+            @foreach ($price_list as $p)
+                <option data-title="{{ $p->title }}" value="{{ $p->id }}">{{ $p->title }}: {{ $p->cash }} руб</option>
+            @endforeach
+            </select>
 
         {!!Form::label('tema', 'Тема заявки:')!!}
         {!!Form::input('text','tema','',['class'=>'form-control', 'placeholder'=>'Тема заявки'])!!}
-        {!!Form::label('price_id','Вид заявки: ')!!}
-        {!!Form::select('price_id', $price_list, null, ['class' => 'form-control'])!!}
-    </div>
-    <div class="col">
-       
         {!!Form::label('z_text', 'Текст заявки:')!!}
         {!!Form::textarea('z_text','',['class'=>'form-control', 'placeholder'=>'Текст заявки'])!!}
 

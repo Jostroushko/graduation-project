@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth']], function () {
     // доступ обычным пользователям
     Route::prefix('home')->group(function(){
         Route::get('/', 'Regular\IndexController@index');
-
+        Route::resource('/zayavki', 'Regular\CRUDRegZayavkiController');
+        Route::post('/zayavki/create', 'Regular\CRUDRegZayavkiController@store');
     });
 });

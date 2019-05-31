@@ -19,4 +19,12 @@ class Regzayavki extends Model
     {
       return $this->belongsTo('App\User');
     }
+    public function price()
+  {
+    return $this->belongsTo('App\Price');
+  }
+  public function status()
+  {
+    return $this->belongsTo('App\Status');
+  }
 }
