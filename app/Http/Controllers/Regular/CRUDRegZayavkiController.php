@@ -114,8 +114,6 @@ class CRUDRegZayavkiController extends Controller
         ]);
       
         $regz= Regzayavki::find($id);
-        $regz->user_id=Auth::user()->id;
-        $regz->name=Auth::user()->name;
         $regz->doptel=$request->doptel;
         $regz->price_id=$request->price_id;
         $regz->tema=$request->tema;
