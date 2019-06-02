@@ -4,8 +4,9 @@
 
 <div class="col-10 adm-content adm">
     <div class="col desc">
-      @if (Auth::user()->id == $regz->user_id)
-        {!!Form::model($regz, array('route' => array('zayavki.update', $regz->id), 'method'=>'PUT'))!!}
+      @if (Auth::user()->id == $zayavki->user_id)
+      
+        {!!Form::model($zayavki, array('route' => array('zayavki.update', $zayavki->id), 'method'=>'PUT'))!!}
         <div class="form-group">
             <h2>Редактировать заявку</h2>
             <p>Ваш email: {{Auth::user()->email}}</p>
@@ -14,14 +15,14 @@
                 <p>Ваш номер телефона: {{Auth::user()->tel}}</p>
                 @else
                 {!!Form::label('doptel', 'Введите номер телефона:')!!}
-                {!!Form::input('text','doptel','',['class'=>'form-control', 'placeholder'=>'Номер телефона'])!!}  
+                {!!Form::text('doptel',null,['class'=>'form-control'])!!}  
             @endif
     
             @if (Auth::user()->fio !== "")
             <p>Ваше имя: {{Auth::user()->fio}}</p>
             @else
             {!!Form::label('fio', 'Введите ФИО:')!!}
-            {!!Form::input('text','fio','',['class'=>'form-control', 'placeholder'=>'ФИО'])!!} 
+            {!!Form::input('text','fio',null,['class'=>'form-control'])!!} 
             @endif
             
         </div>
@@ -34,9 +35,9 @@
                 </select>
     
             {!!Form::label('tema', 'Тема заявки:')!!}
-            {!!Form::input('text','tema','',['class'=>'form-control', 'placeholder'=>'Тема заявки'])!!}
+            {!!Form::input('text','tema',null,['class'=>'form-control'])!!}
             {!!Form::label('z_text', 'Текст заявки:')!!}
-            {!!Form::textarea('z_text','',['class'=>'form-control', 'placeholder'=>'Текст заявки'])!!}
+            {!!Form::textarea('z_text',null,['class'=>'form-control'])!!}
     
             {!!Form::submit('Отправить заявку',['class'=>'btn btn-primary btn-lg btn-block'])!!}
         {!!Form::close()!!} 

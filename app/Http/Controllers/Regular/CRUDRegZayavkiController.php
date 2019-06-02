@@ -89,10 +89,11 @@ class CRUDRegZayavkiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    { 
+        $zayavki = Regzayavki::find($id);
         $price_list = Price::select('id','title','cash')->get();
-        $regz = Regzayavki::find($id);
-        return view('regularuser.pages.zayavki.edit')->with(compact('regz', 'price_list'));
+       
+        return view('regularuser.pages.zayavki.edit')->with(compact('zayavki', 'price_list'));
     }
 
     /**
