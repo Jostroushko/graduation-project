@@ -115,6 +115,7 @@ class CRUDRegZayavkiController extends Controller
         ]);
       
         $regz= Regzayavki::find($id);
+        $regz->fio=$request->fio;
         $regz->doptel=$request->doptel;
         $regz->price_id=$request->price_id;
         $regz->tema=$request->tema;

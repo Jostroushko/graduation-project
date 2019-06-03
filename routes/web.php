@@ -46,5 +46,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', 'Regular\IndexController@index');
         Route::resource('/zayavki', 'Regular\CRUDRegZayavkiController');
         Route::post('/zayavki/create', 'Regular\CRUDRegZayavkiController@store');
+        Route::get('/profile/{profile}/edit','Regular\UpdateUserController@edit')->name('profile.edit');
+        Route::put('/profile/{profile}', 'Regular\UpdateUserController@update')->name('profile.update');
     });
 });

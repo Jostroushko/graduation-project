@@ -3,6 +3,10 @@ html, body{
   height: auto;
   font-family: 'Cormorant SC', serif;
 }
+.current a {
+  font-weight: 700 !important;
+  color: black !important;
+}
 .row {
 margin-right: 0px !important;
   margin-left: 0px !important;

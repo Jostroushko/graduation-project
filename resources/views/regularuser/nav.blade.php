@@ -7,12 +7,12 @@
     
       <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
         <ul class="navbar-nav">
-          <li class="nav-item {{ Request::is('home/*') ? 'active' : '' }}">
+          <li class="nav-item {{ Request::is('home*') ? 'active' : '' }}">
             <a class="nav-link" href="{{URL::to('home/')}}">Главная</a>
           </li>
           <li class="nav-item {{ Request::is('home/zayavki*') ? 'active' : '' }}"><a class="nav-link"  href="{{URL::to('home/zayavki/create')}}">Создать заявку</a></li>
            <li class="nav-item {{ Request::is('home/mail*') ? 'active' : '' }}"><a class="nav-link"  href="{{URL::to('home/mail/')}}">Рассылка</a></li>
-           <li class="nav-item {{ Request::is('home/profile*') ? 'active' : '' }}"><a class="nav-link"  href="{{URL::to('home/profile/1/edit')}}">Редактировать профиль</a></li>
+           <li class="nav-item {{ Request::is('home/profile*') ? 'active' : '' }}"><a class="nav-link"  href="{{URL::to('home/profile/'.Auth::user()->id.'/edit')}}">Редактировать профиль</a></li>
             <li class="nav-item back-link"><a class="nav-link "  href="{{URL::to('/')}}"> Назад на сайт</a></li>
           </ul>
       </div>

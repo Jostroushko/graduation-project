@@ -1,7 +1,6 @@
 @extends('regularuser.pages.page')
 @section('content')
 @include('regularuser.nav')
-
 <div class="col-10 adm-content adm">
     <div class="col desc">
       @if (Auth::user()->id == $zayavki->user_id)

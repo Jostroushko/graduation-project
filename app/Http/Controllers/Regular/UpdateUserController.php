@@ -1,17 +1,18 @@
 <?php
 
 namespace App\Http\Controllers\Regular;
-
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class UpdateUserController extends Controller
 {
-    // public function edit()
-    // {
-    //     return view('regularuser.pages.profile.update');
-    // }
+    public function edit()
+    {
+        
+        return view('regularuser.pages.profile.update');
+    }
 
     // /**
     //  * Update the specified resource in storage.

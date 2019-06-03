@@ -8,56 +8,91 @@
         </div>
     @endif
         
-        <div class="col desc">
+        <div class="col">
           
          <h3>Добро пожаловать в личный кабинет</h3>
          <div class="card">
-                <!-- Изображение -->
                 <img class="card-img-top" src="..." alt="...">
-                <!-- Текстовый контент -->
                 <div class="card-body">
-                    <h4 class="card-title">{{Auth::user()->name}}</h4>
-                    <p class="card-text">{{Auth::user()->email}}</p>
+                    <h4 class="card-title">Ваш логин: {{Auth::user()->name}}</h4>
                 </div>
-                <!-- Список List groups -->
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{Auth::user()->city->name}}</li>
-                    <li class="list-group-item">{{Auth::user()->userstatus->name}}</li>
-                    <li class="list-group-item">Ваши заявки
-                        <ul>
-                            <li>тут сортировка</li>
-                        </ul>
-                        @foreach ($regz as $r)
-                        <div class="card">
-                                <!-- Текстовый контент -->
-                                <div class="card-body">
-                                            <p>{{ $loop->iteration }}</p>
-                                            <p>{{ $r->fio }}</p>
-                                            <p>{{ $r->tema }}</p>
-                                            <p>{{ $r->doptel }}</p>
-                                            <p>{{ $r->price->title }}</p>
-                                            <p>{{ $r->price->cash }}</p>
-                                            <p>{{ $r->z_text }}</p>
-                                            <p>{{ $r->status->ready }}</p>
-                                            <p>{{ $r->created_at }}</p>
-                                            <p>{!!Form::open(['method'=>'DELETE', 'route'=>['zayavki.destroy',$r->id]])!!}
-                                              {!!Form::submit('удалить',['class'=>'btn btn-danger btn-lg btn-block'])!!}
-                                              {!!Form::close()!!}</p>
-                                </div>
-                            </div> 
-                            @endforeach<!-- Конец карточки -->
-                    </li>
-                    {{ $regz->links() }}
+                    <li class="list-group-item">Ваш e-mail: {{Auth::user()->email}}</li>
+                    <li class="list-group-item">Ваш город: {{Auth::user()->city->name}}</li>
+                    <li class="list-group-item {{ Auth::user()->userstatus->id== 1 ? 'text-success' : '' }}">Статус клиента: {{Auth::user()->userstatus->name}}</li>
                 </ul>
-                <!-- Текстовый контент -->
-                <div class="card-body">
-                    <a href="#" class="card-link">Ссылка №1</a>
-                    <a href="#" class="card-link">Ссылка №2</a>
+            </div><!-- Конец карточки --> 
+        </div>
+<div class="row">
+            <div class="col-3">
+                    <div class="card">
+                        <h4 class="card-title">Ваши заявки:</h4>
+                           <ul class="nav">
+                                @forelse ($archives as $item) 
+                               <li class="nav-item"><a class="nav-link" href="home/?month={{$item->month}}&year={{$item->year}}">
+                                    {{$item->monthRU}} {{$item->year}} ({{$item->number}})
+                                </a></li>
+                                @empty
+                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-home" aria-selected="true"><a >
+                            Здесь ничего нет
+                        </a>
+                        @endforelse 
+                           </ul>
+                       </div>
+                   </div>
+
+
+
+            <div class="col-9">
+                  
+                        @foreach ($regz as $r)
+                        <div class="card"> 
+                      <div class="card-body row">
+                            <div class="col-3 bg-secondary text-white">
+                        <p>ФИО: {{ $r->fio }}</p>
+                        <p>Тема: {{ $r->tema }}</p>
+                        <p>Номер: 
+                            @if ($r->doptel == NULL)
+                        {{Auth::user()->tel}}
+                        @else
+                        {{ $r->doptel }}
+                            @endif
+                            </p>   
+                    </div>
+                    <div class="col-6">
+                        <h4 class="card-title">{{ $r->price->title }}</h4>
+                        <p>{{ str_limit($r->z_text , 100)}}<a href="{{URL::to('home/zayavki/'.$r->id.'/edit')}}" class="text-primar">читать далее...</a></p>
+                        
+                    </div>
+
+                        <div class="col-3">
+                        <p class="text-white {{ $r->status->id== 1 ? 'bg-success' : $r->status->id == 2 ? 'bg-dark' : 'bg-primary' }}">Статус: {{ $r->status->ready }}</p> 
+                        <p>Дата создания: {{ $r->created_at }}</p>
+                        <p>{!!Form::open(['method'=>'DELETE', 'route'=>['zayavki.destroy',$r->id]])!!}
+                          {!!Form::submit('удалить',['class'=>'btn btn-danger btn-lg btn-block'])!!}
+                          {!!Form::close()!!}</p>
+                        
+                        </div>
+                      </div>
+                  </div>
+                        @endforeach 
+                   
+                  
+                  {{ $regz->links() }}
                 </div>
-            </div><!-- Конец карточки -->
-        
+                </div>
         </div>
        </div>
-
-    </div>
+      <script> $(function () {
+        var location = window.location.href;
+        var cur_url = 'home/?'+location.split('/home?').pop();
+        console.log(cur_url);
+        $('ul.nav li').each(function () {
+            var link = $(this).find('a').attr('href');
+            console.log(link);
+            if (cur_url == link) {
+                $(this).addClass('current');
+            }
+        });
+    });</script>
 @endsection
