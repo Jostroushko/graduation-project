@@ -1,8 +1,8 @@
-@extends('homereg')
+@extends('regularuser.pages.page')
 @section('content')
 @include('regularuser.nav')
-<main role="main"">
-    <div class="form-group">
+<div class="col-10 adm-content adm">
+        <div class="col desc">
             @if (session()->has('message'))
             <div class="alert alert-info">{{ session('message') }}</div>
         @endif
@@ -42,10 +42,16 @@
 
         {!!Form::label('tema', 'Тема заявки:')!!}
         {!!Form::input('text','tema','',['class'=>'form-control', 'placeholder'=>'Тема заявки'])!!}
+        
+    </div>
+    
+    </div>
+    <div class="row">
+            <div class="col">
         {!!Form::label('z_text', 'Текст заявки:')!!}
         {!!Form::textarea('z_text','',['class'=>'form-control', 'placeholder'=>'Текст заявки'])!!}
 
-        {!!Form::submit('Отправить заявку',['class'=>'btn btn-primary btn-lg btn-block'])!!}
+        {!!Form::submit('Отправить заявку',['class'=>'btn btn-primary btn-lg btn-block mt-3'])!!}
 
         {!! Form::close() !!}
     </div>
@@ -71,5 +77,5 @@
                 },10000);
             });
         </script>
-      </main>
+      </div>
 @endsection

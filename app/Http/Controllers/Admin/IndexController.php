@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Zayavki;
+use App\Regzayavki;
 use App\Http\Requests\CreateZayavkaRequest;
 
 class IndexController extends Controller
@@ -13,7 +14,9 @@ class IndexController extends Controller
         return view('admin.index');
     }
     public function zayavki(){
-        $zayavkis=Zayavki::paginate(5);
+        $zayavkis=Regzayavki::latest()
+        ->filter(request(['month', 'year']))
+        ->paginate(5);
         return view('admin.pages.viewz',compact('zayavkis'));
     }
     public function delete(Request $request,$id){

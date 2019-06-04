@@ -12,7 +12,6 @@
           
          <h3>Добро пожаловать в личный кабинет</h3>
          <div class="card">
-                <img class="card-img-top" src="..." alt="...">
                 <div class="card-body">
                     <h4 class="card-title">Ваш логин: {{Auth::user()->name}}</h4>
                 </div>
@@ -50,7 +49,7 @@
                       <div class="card-body row">
                             <div class="col-3 bg-secondary text-white">
                         <p>ФИО: {{ $r->fio }}</p>
-                        <p>Тема: {{ $r->tema }}</p>
+                        <p>Вид: {{ $r->price->title }}</p>
                         <p>Номер: 
                             @if ($r->doptel == NULL)
                         {{Auth::user()->tel}}
@@ -60,7 +59,7 @@
                             </p>   
                     </div>
                     <div class="col-6">
-                        <h4 class="card-title">{{ $r->price->title }}</h4>
+                        <h4 class="card-title">{{ $r->tema }}</h4>
                         <p>{{ str_limit($r->z_text , 100)}}<a href="{{URL::to('home/zayavki/'.$r->id.'/edit')}}" class="text-primar">читать далее...</a></p>
                         
                     </div>

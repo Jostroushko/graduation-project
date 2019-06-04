@@ -42,11 +42,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('/price', 'Admin\CRUDPricesController');
     });
     // доступ обычным пользователям
-    Route::prefix('home')->group(function(){
+    Route::prefix('home')->middleware('role:ROLE_REGULAR')->group(function(){
         Route::get('/', 'Regular\IndexController@index');
         Route::resource('/zayavki', 'Regular\CRUDRegZayavkiController');
         Route::post('/zayavki/create', 'Regular\CRUDRegZayavkiController@store');
         Route::get('/profile/{profile}/edit','Regular\UpdateUserController@edit')->name('profile.edit');
         Route::put('/profile/{profile}', 'Regular\UpdateUserController@update')->name('profile.update');
+        Route::get('/profile/{profile}', 'Regular\UpdateUserController@show')->name('profile.show');
     });
 });
