@@ -15,7 +15,7 @@
             <div class="row">
                     <div class="col-3">
                             <div class="card">
-                                <h4 class="card-title">Ваши заявки:</h4>
+                                <h4 class="card-title">Заявки:</h4>
                                    <ul class="nav">
                                         @forelse ($archives as $item) 
                                        <li class="nav-item"><a class="nav-link" href="zayavki/?month={{$item->month}}&year={{$item->year}}">
@@ -50,7 +50,7 @@
                                     @if ($r->email == NULL)
                                     <p>E-mail: {{App\User::find($r->user_id)->email}}</p>
                                     @else
-                                    <p>E-mail: {{ $r->doptel }}</p>
+                                    <p>E-mail: {{ $r->email }}</p>
                                         @endif
                                         @if ($r->email == NULL)
                                         <p>Логин юзера: {{App\User::find($r->user_id)->name}}</p>

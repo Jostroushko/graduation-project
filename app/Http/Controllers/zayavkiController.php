@@ -9,11 +9,12 @@ use App\Http\Requests\CreateZayavkaRequest;
 
 class zayavkiController extends Controller
 {
-    //
+    // функция возвращает страницу с формой
     public function index(){
         $price_list = Price::pluck('title','id')->toArray();
-    	return view('zayavki.index')->with(compact('price_list'));
+    	return view('zayavki.index')->with(compact('price_list')); 
     }
+    // функция сохраняет давнные с формы в таблицу и отправляет e-mail сообщение на указанный адрес
     public function store(CreateZayavkaRequest $request){
         Regzayavki::create($request->all());
         Mail::send(['text'=>'mail'],['name','jjjjjj'], function ($message) {

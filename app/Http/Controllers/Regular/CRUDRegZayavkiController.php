@@ -19,6 +19,7 @@ class CRUDRegZayavkiController extends Controller
    
     public function index()
     {
+
         $regz = Regzayavki::orderby('created_at','desc')->paginate(5);
     	return view('regularuser.index')->with(compact('regz'));
     }
@@ -44,10 +45,10 @@ class CRUDRegZayavkiController extends Controller
     {
         $price_list = Price::select('id','title','cash')->get();
         $this->validate($request,[
-            'fio'=>'required|min:6',
+            'fio'=>'min:6',
             'tema'=>'required|min:6',
-            'z_text'=>'required|min:140',
-            'doptel'=>'required|max:20',
+            'z_text'=>'required|min:40',
+            'doptel'=>'max:20',
 
         ]);
       
@@ -134,7 +135,7 @@ class CRUDRegZayavkiController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $regz= Regzayavki::find($id);
+        $regz= Regzayavki::find();
         $regz->delete();
         $request->session()->flash('success-del', 'Работа успешно удалена');
         return redirect()->back();

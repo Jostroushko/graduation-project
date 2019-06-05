@@ -29,7 +29,7 @@
                            <ul class="nav">
                                 @forelse ($archives as $item) 
                                <li class="nav-item"><a class="nav-link" href="home/?month={{$item->month}}&year={{$item->year}}">
-                                    {{$item->monthRU}} {{$item->year}} ({{$item->number}})
+                                    {{$item->monthRU}} {{$item->year}} 
                                 </a></li>
                                 @empty
                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-home" aria-selected="true"><a >

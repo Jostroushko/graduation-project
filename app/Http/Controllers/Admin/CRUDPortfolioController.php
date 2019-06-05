@@ -54,7 +54,7 @@ class CRUDPortfolioController extends Controller
         $portfolio->path=$request->file('path')->store('uploads', 'public');
         $portfolio->about=$request->about;
         $portfolio->save();
-        $request->session()->flash('success', 'Категория успешно добавлена');
+        $request->session()->flash('success', 'Работа успешно добавлена');
         // return view('admin.pages.newsshow');
         return redirect()->route('portfolio.show',$portfolio->id);
     }

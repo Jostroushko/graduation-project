@@ -40,7 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/updinfo/{updinfo}', 'Admin\UpdateInfoController@update')->name('updinfo.update');
         Route::get('/profile', 'Admin\ProfileController@index');
         Route::get('/profile/{profile}/edit','Admin\ProfileController@edit')->name('profil.edit');
-        Route::put('/profile/{profile}', 'Admin\ProfileController@update')->name('profil.update');
+        Route::put('/profile', 'Admin\ProfileController@update')->name('profil.update');
     
         Route::resource('/price', 'Admin\CRUDPricesController');
     });
