@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
             });
         view()->composer('admin.pages.viewz', function ($view) 
             {
-                $view->with('archives', Zayavki::archives());      
+                $view->with('archives', Regzayavki::archives());      
             });
 
         Schema::defaultStringLength(191); 

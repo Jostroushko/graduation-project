@@ -8,9 +8,10 @@ class Regzayavki extends Model
 {
     protected $fillable = [
         'user_id',
+        'email',
+        'fio',
         'name',
         'doptel',
-        'adress',
         'z_tema',
         'price_id',
         'z_text'

@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers;
-use App\Zayavki;
+use App\Regzayavki;
 use App\Price;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
@@ -15,7 +15,7 @@ class zayavkiController extends Controller
     	return view('zayavki.index')->with(compact('price_list'));
     }
     public function store(CreateZayavkaRequest $request){
-        Zayavki::create($request->all());
+        Regzayavki::create($request->all());
         Mail::send(['text'=>'mail'],['name','jjjjjj'], function ($message) {
             $message->from('jostroushko@gmail.com', 'Сайт фотографа');
             $message->to((request()->input('email')), (request()->input('fio')));

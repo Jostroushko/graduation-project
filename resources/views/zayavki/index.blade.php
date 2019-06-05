@@ -23,6 +23,8 @@
         {!!Form::input('text','tema','',['class'=>'form-control', 'placeholder'=>'Тема заявки'])!!}
         {!!Form::label('price_id','Вид заявки: ')!!}
         {!!Form::select('price_id', $price_list, null, ['class' => 'form-control'])!!}
+        {!!Form::label('doptel', 'Номер телефона:')!!}
+        {!!Form::text('doptel',null,['class'=>'form-control','pattern'=>'+7[0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}', 'placeholder'=>'+7(___)___-__-__'])!!}
     </div>
     <div class="col">
        

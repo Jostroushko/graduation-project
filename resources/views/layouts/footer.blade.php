@@ -12,6 +12,7 @@
           </a></p>
             @else
              <p><a class="nav-link" href="{{ route('login') }}">Вход</a></p>
+             <p><a class="nav-link" href="{{ route('register') }}">Регистрация</a></p>
       @endif
         </div>
       </footer>

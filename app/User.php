@@ -30,6 +30,10 @@ class User extends Authenticatable
   {
     return $this->belongsTo('App\City');
   }
+  public function zayavki()
+  {
+    return $this->hasMany('App\Regzayavki');
+  }
   public function userstatus()
   {
     return $this->belongsTo('App\Userstatus');
