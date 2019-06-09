@@ -1,7 +1,7 @@
 @extends('admin.pages.page')
 @section('content')
 @include('admin.nav')
-<div class="col-10 adm-content adm">
+<div class="col-lg-10 col-sm-12 adm-content adm">
         <div class="col desc">
                 @if (session()->has('success'))
                 <div class="alert alert-info">{{ session('success') }}</div>
@@ -22,8 +22,8 @@
             <div class="col">
                 {!!Form::model($user, array('route' => array('profil.update', $user->id), 'method'=>'PUT'))!!}
                 <h2>Информация о пользователе</h2>
-                <p>E-mail: {{$user->email}}</p>
-                <p>Город: {{$user->city_id !==NULL ? $user->city->name: 'нет'}}</p>
+                <p>E-mail: {{$user->email !==NULL ? $user->email: 'нет'}}</p>
+                <p>Город: {{!empty($user->city_id) ? $user->city->name : 'нет'}}</p>
                 <p>Имя: {{ $user->fio!=='' ? $user->fio : 'нет'}}</p>
                 <p>Номер телефона: {{  $user->tel!=='' ? $user->tel : 'нет'}}</p>
                 <h2>Редактировать профиль</h2>

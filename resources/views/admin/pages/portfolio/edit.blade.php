@@ -1,7 +1,7 @@
 @extends('admin.pages.page')
 @section('content')
 @include('admin.nav')
-<div class="col-10 adm-content adm">
+<div class="col-lg-10 col-sm-12 adm-content adm">
      <div class="col desc">
               {!!Form::model($portfolio, array('route' => array('portfolio.update', $portfolio->id), 'method'=>'PUT','enctype' => 'multipart/form-data'))!!}
         <div class="form-group">

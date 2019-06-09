@@ -1,7 +1,7 @@
 @extends('regularuser.pages.page')
 @section('content')
 @include('regularuser.nav')
-<div class="col-10 adm-content adm">
+<div class="col-lg-10 col-sm-12 adm-content adm">
     <div class="col desc">
             @if (session()->has('success'))
             <div class="alert alert-info">{{ session('success') }}</div>
@@ -19,7 +19,7 @@
       @if (Auth::user()->id == $user->id)
          <h2>Редактировать профиль</h2>
          <div class="row">           
-        <div class="col">
+        <div class="col-md-6">
             {!!Form::model($user, array('route' => array('profile.update', $user->id), 'method'=>'PUT'))!!}
             {!!Form::label('name', 'Введите логин:')!!}
             {!!Form::text('name',null,['class'=>'form-control'])!!}  
@@ -34,7 +34,7 @@
                 @endforeach
                 </select>
         </div>
-        <div class="col">
+        <div class="col-md-6">
                 {!!Form::label('password', 'Пароль:')!!}
                 {!!Form::input('password','password',null,['class'=>'form-control'])!!}
             {!!Form::label('password_confirmation', 'Подтвердите пароль:')!!}

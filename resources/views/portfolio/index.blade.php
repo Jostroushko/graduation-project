@@ -13,6 +13,7 @@
             </li>
         @endforeach
     </ul> 
+    {{ $category->links() }}
             </div>
 </div>
  @endsection

@@ -1,7 +1,7 @@
 @extends('admin.pages.page')
 @section('content')
 @include('admin.nav')
-<div class="col-10 adm-content adm">
+<div class="col-lg-10 col-sm-12 adm-content adm">
     <div class="col desc">
     <div class="form-group">
     {!!Form::model($price, array('route' => array('price.update', $price->id), 'method'=>'PUT'))!!}

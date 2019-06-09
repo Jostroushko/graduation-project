@@ -9,7 +9,8 @@
                        @foreach ($portfolio as $p)  
                        <img class="image" title="Нажмите для увеличения изображения" src="{{asset('/storage/'.$p->path)}}" alt=" ">
                        @endforeach
-    </div>
+		</div>
+		{{ $portfolio->links() }}
 </div> 
     
 </div>

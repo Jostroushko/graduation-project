@@ -1,7 +1,7 @@
 @extends('homereg')
 @section('content')
 @include('regularuser.nav')
-<div class="col-10 adm-content adm">
+<div class="col-lg-10 col-sm-12 adm-content adm">
         @if (session('status'))
         <div class="alert alert-success">
             {{ session('status') }}
@@ -17,13 +17,13 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Ваш e-mail: {{Auth::user()->email}}</li>
-                    <li class="list-group-item">Ваш город: {{Auth::user()->city->name}}</li>
+                    <li class="list-group-item">Ваш город: {{!empty(Auth::user()->city_id) ? Auth::user()->city->name : 'нет'}}</li>
                     <li class="list-group-item {{ Auth::user()->userstatus->id== 1 ? 'text-success' : '' }}">Статус клиента: {{Auth::user()->userstatus->name}}</li>
                 </ul>
             </div><!-- Конец карточки --> 
         </div>
 <div class="row">
-            <div class="col-3">
+            <div class="col-lg-3 col-sm-12">
                     <div class="card">
                         <h4 class="card-title">Ваши заявки:</h4>
                            <ul class="nav">
@@ -42,12 +42,12 @@
 
 
 
-            <div class="col-9">
+            <div class="col-lg-9 col-sm-12">
                   
                         @foreach ($regz as $r)
                         <div class="card"> 
                       <div class="card-body row">
-                            <div class="col-3 bg-secondary text-white">
+                            <div class="col-lg-3 col-sm-12 bg-secondary text-white">
                         <p>ФИО: @if ($r->fio == NULL)
                                 {{Auth::user()->fio}}
                                 @else
@@ -62,13 +62,14 @@
                             @endif
                             </p>   
                     </div>
-                    <div class="col-6">
+                    <div class="col-lg-6 col-sm-12">
                         <h4 class="card-title">{{ $r->tema }}</h4>
-                        <p>{{ str_limit($r->z_text , 100)}}<a href="{{URL::to('home/zayavki/'.$r->id.'/edit')}}" class="text-primar">читать далее...</a></p>
+                        <p>{{ str_limit($r->z_text , 100)}}</p>
+                        <p><a href="{{URL::to('home/zayavki/'.$r->id.'/edit')}}" class="text-primar">редактировать</a></p>
                         
                     </div>
 
-                        <div class="col-3">
+                        <div class="col-lg-3 col-sm-12">
                         <p class="text-white {{ $r->status_id== 1 ? 'bg-success' : $r->status_id == 2 ? 'bg-dark' : 'bg-primary' }}">Статус: {{ $r->status->ready }}</p> 
                         <p>Дата создания: {{ $r->created_at }}</p>
                         <p>{!!Form::open(['method'=>'DELETE', 'route'=>['zayavki.destroy',$r->id]])!!}

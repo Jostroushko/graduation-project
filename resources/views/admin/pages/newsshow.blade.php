@@ -1,7 +1,7 @@
 @extends('admin.pages.page')
 @section('content')
 @include('admin.nav')
-<div class="col-10 adm-content adm">
+<div class="col-lg-10 col-sm-12 adm-content adm">
     @if (session()->has('success-del'))
         <div class="alert alert-denger">{{ session('success-del') }}</div>
     @endif 

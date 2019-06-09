@@ -31,6 +31,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', 'Admin\IndexController@index');
         Route::get('/zayavki', 'Admin\IndexController@zayavki');
         Route::delete('/zayavki/delete/{id}', 'Admin\IndexController@delete')->name('zayavka.delete');
+        Route::get('/zayavki/{zayavki}/edit','Admin\IndexController@edit')->name('zayavka.edit');
+        Route::put('/zayavki/{zayavki}','Admin\IndexController@update')->name('zayavka.update');
         Route::resource('/posts', 'Admin\CRUDPostsController');
         Route::resource('/portfolio', 'Admin\CRUDPortfolioController');
         Route::resource('/category', 'Admin\CRUDCategoryController');

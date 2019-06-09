@@ -1,7 +1,7 @@
 @extends('admin.pages.page')
 @section('content')
 @include('admin.nav')
-    <div class="col-10 adm-content adm">
+    <div class="col-lg-10 col-sm-12 adm-content adm">
         @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}
@@ -13,7 +13,7 @@
                 </div>
             @endif
             <div class="row">
-                    <div class="col-3">
+                    <div class="col-lg-3 col-sm-12">
                             <div class="card">
                                 <h4 class="card-title">Заявки:</h4>
                                    <ul class="nav">
@@ -32,12 +32,12 @@
         
         
         
-                    <div class="col-9">
+                    <div class="col-lg-9 col-sm-12">
                           
                                 @foreach ($zayavka as $r)
                                 <div class="card"> 
                               <div class="card-body row">
-                                    <div class="col-3 bg-secondary text-white">
+                                    <div class="col-lg-3 col-sm-12 bg-secondary text-white">
                                 <p>ФИО: {{ $r->fio }}</p>
                                 <p>Вид: {{ $r->price->title }}</p>
                                 <p>Номер: 
@@ -58,14 +58,15 @@
                                       
 
                             </div>
-                            <div class="col-6">
+                            <div class="col-lg-6 col-sm-12">
                                 <h4 class="card-title">{{ $r->tema }}</h4>
                                 <p>{{$r->z_text}}</p>
+                                <p><a href="{{URL::to('admin/zayavki/'.$r->id.'/edit')}}">редактировать</a></p>
                                 
                             </div>
         
-                                <div class="col-3">
-                                <p class="text-white {{ $r->status->id== 1 ? 'bg-success' : $r->status->id == 2 ? 'bg-dark' : 'bg-primary' }}">Статус: {{ $r->status->ready }}</p> 
+                                <div class="col-lg-3 col-sm-12">
+                                <p class="text-white {{ $r->status->id == 1 ? 'bg-success' : $r->status->id == 2 ? 'bg-dark' : 'bg-primary' }}">Статус: {{ $r->status->ready }}</p> 
                                 <p>Дата создания: {{ $r->created_at }}</p>
                                 <p>{!!Form::open(['method'=>'DELETE', 'route'=>['zayavka.delete',$r->id]])!!}
                                   {!!Form::submit('удалить',['class'=>'btn btn-danger btn-lg btn-block'])!!}

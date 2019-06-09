@@ -1,7 +1,7 @@
 @extends('regularuser.pages.page')
 @section('content')
 @include('regularuser.nav')
-<div class="col-10 adm-content adm">
+<div class="col-lg-10 col-sm-12 adm-content adm">
         <div class="col desc">
             @if (session()->has('message'))
             <div class="alert alert-info">{{ session('message') }}</div>
@@ -11,19 +11,19 @@
                   </div>
 <div class="container">
     <div class="row ">
-        <div class="col">
+        <div class="col-md-6">
           
         {!! Form::open() !!}
         <p>Ваш email: {{Auth::user()->email}}</p>
 
-        @if (Auth::user()->tel !=="")
+        @if (!empty(Auth::user()->tel))
             <p>Ваш номер телефона: {{Auth::user()->tel}}</p>
             @else
             {!!Form::label('doptel', 'Введите номер телефона:')!!}
             {!!Form::input('text','doptel','',['class'=>'form-control', 'placeholder'=>'Номер телефона'])!!}  
         @endif
 
-        @if (Auth::user()->fio !== "")
+        @if (!empty(Auth::user()->fio))
         <p>Ваше имя: {{Auth::user()->fio}}</p>
         @else
         {!!Form::label('fio', 'Введите ФИО:')!!}
@@ -31,9 +31,8 @@
         @endif
         
     </div>
-    <div class="col">
+    <div class="col-md-6">
        {!!Form::label('price_id','На что похож ваш заказ: ')!!}
-        {{-- {{ Form::select('price_id', $price_list,['class' => 'form-control'])}} --}}
         <select name="price_id" class="form-control">
             @foreach ($price_list as $p)
                 <option data-title="{{ $p->title }}" value="{{ $p->id }}">{{ $p->title }}: {{ $p->cash }} руб</option>
@@ -47,7 +46,7 @@
     
     </div>
     <div class="row">
-            <div class="col">
+            <div class="col-md-6">
         {!!Form::label('z_text', 'Текст заявки:')!!}
         {!!Form::textarea('z_text','',['class'=>'form-control', 'placeholder'=>'Текст заявки'])!!}
 

@@ -2,7 +2,7 @@
 @section('content')
 @include('admin.nav')
 
-<div class="col-10 adm-content adm">
+<div class="col-lg-10 col-sm-12 adm-content adm">
     <div class="col desc">
       
         {!!Form::open(['route'=>'category.store','enctype' => 'multipart/form-data'])!!}
