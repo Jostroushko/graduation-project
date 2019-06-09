@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
                                
-        <table class="table table-hover">
+        <table class="table table-hover table-responsive">
                 <thead>
                   <tr>
                     <th>№</th>

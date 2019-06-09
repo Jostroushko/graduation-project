@@ -48,7 +48,11 @@
                         <div class="card"> 
                       <div class="card-body row">
                             <div class="col-3 bg-secondary text-white">
-                        <p>ФИО: {{ $r->fio }}</p>
+                        <p>ФИО: @if ($r->fio == NULL)
+                                {{Auth::user()->fio}}
+                                @else
+                                {{ $r->fio }}
+                                    @endif</p>
                         <p>Вид: {{ $r->price->title }}</p>
                         <p>Номер: 
                             @if ($r->doptel == NULL)
@@ -65,7 +69,7 @@
                     </div>
 
                         <div class="col-3">
-                        <p class="text-white {{ $r->status->id== 1 ? 'bg-success' : $r->status->id == 2 ? 'bg-dark' : 'bg-primary' }}">Статус: {{ $r->status->ready }}</p> 
+                        <p class="text-white {{ $r->status_id== 1 ? 'bg-success' : $r->status_id == 2 ? 'bg-dark' : 'bg-primary' }}">Статус: {{ $r->status->ready }}</p> 
                         <p>Дата создания: {{ $r->created_at }}</p>
                         <p>{!!Form::open(['method'=>'DELETE', 'route'=>['zayavki.destroy',$r->id]])!!}
                           {!!Form::submit('удалить',['class'=>'btn btn-danger btn-lg btn-block'])!!}

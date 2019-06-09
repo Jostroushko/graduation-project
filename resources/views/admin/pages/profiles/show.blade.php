@@ -16,14 +16,13 @@
                 <th>ФИО</th>
                 <th>Email</th>
                 <th>Номер телефона</th>
-                {{-- <th>Город</th> --}}
-                <th>Скидка</th>
-                {{-- <th>Статус</th> --}}
+                <th></th>
+                
                 
               </tr>
             </thead>
             <tbody>
-    
+                
                 @foreach ($prof as $p)
         <tr>
             <td>{{ $loop->iteration }}</td>
@@ -31,9 +30,7 @@
             <td>{{ $p->fio }}</td>
             <td>{{ $p->email }}</td>
             <td>{{ $p->tel }}</td>
-            {{-- <td>{{ $p->city_id !== null ? $city = App\City::find($p->city_id) : 'не указан'}} </td> --}}
-            <td>{{ $p->discount }}</td>
-            {{-- <td>{{ App\Userstatus::find($p->userstatus_id)->name }}</td> --}}
+        <td><a href="{{URL::to('admin/profile/'.$p->id.'/edit')}}" class="btn btn-default">редактировать</a></td>
             
         </tr>
     @endforeach

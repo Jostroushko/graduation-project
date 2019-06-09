@@ -3,6 +3,21 @@
 @include('regularuser.nav')
 <div class="col-10 adm-content adm">
     <div class="col desc">
+            @if ($errors->any())
+ 
+            <div id="my-alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                 @foreach ($errors->all() as $error)  
+                {{$error}}<br> 
+                   @endforeach
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                   </button>
+               </div>
+                      
+                       @endif
+            @if (session()->has('success'))
+            <div class="alert alert-info">{{ session('success') }}</div>
+        @endif
       @if (Auth::user()->id == $zayavki->user_id)
       
         {!!Form::model($zayavki, array('route' => array('zayavki.update', $zayavki->id), 'method'=>'PUT'))!!}
@@ -29,7 +44,7 @@
            {!!Form::label('price_id','На что похож ваш заказ: ')!!}
             <select name="price_id" class="form-control">
                 @foreach ($price_list as $p)
-                    <option data-title="{{ $p->title }}" value="{{ $p->id }}">{{ $p->title }}: {{ $p->cash }} руб</option>
+                    <option data-title="{{ $p->title }}" {{$p->id ==$zayavki->price_id ? 'selected' : ''}} value="{{ $p->id }}">{{ $p->title }}: {{ $p->cash }} руб</option>
                 @endforeach
                 </select>
     

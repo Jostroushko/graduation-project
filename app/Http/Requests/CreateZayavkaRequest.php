@@ -28,6 +28,7 @@ class CreateZayavkaRequest extends FormRequest
             'email'=>'required|email',
             'fio'=>'required|min:6',
             'tema'=>'required|min:6',
+            'doptel'=>'required|phone',
             'z_text'=>'required|min:40'
         ];
     }

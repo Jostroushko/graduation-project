@@ -10,7 +10,7 @@
                   </div>
 <div class="container">
     <div class="row ">
-        <div class="col">
+        <div class="col-md-6">
         {!! Form::open() !!}
         {{-- поле для ввода email адреса --}}
         {!!Form::label('email', 'E-mail:')!!}
@@ -28,7 +28,7 @@
         {!!Form::label('doptel', 'Номер телефона:')!!}
         {!!Form::text('doptel',null,['class'=>'form-control','pattern'=>'+7[0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}', 'placeholder'=>'+7(___)___-__-__'])!!}
     </div>
-    <div class="col">
+    <div class="col-md-6">
         {{-- поле для ввода email адреса --}}
         {!!Form::label('z_text', 'Текст заявки:')!!}
         {!!Form::textarea('z_text','',['class'=>'form-control', 'placeholder'=>'Текст заявки'])!!}

@@ -17,10 +17,16 @@
         </div>
                 @endif
          
-             <h2>Редактировать профиль</h2>
+             
              <div class="row">           
             <div class="col">
                 {!!Form::model($user, array('route' => array('profil.update', $user->id), 'method'=>'PUT'))!!}
+                <h2>Информация о пользователе</h2>
+                <p>E-mail: {{$user->email}}</p>
+                <p>Город: {{$user->city_id !==NULL ? $user->city->name: 'нет'}}</p>
+                <p>Имя: {{ $user->fio!=='' ? $user->fio : 'нет'}}</p>
+                <p>Номер телефона: {{  $user->tel!=='' ? $user->tel : 'нет'}}</p>
+                <h2>Редактировать профиль</h2>
                 {!!Form::label('discount', 'Введите скидку:')!!}
                 {!!Form::text('discount',null,['class'=>'form-control'])!!}  
                 {!!Form::label('userstatus_id','Статус клиента: ')!!}

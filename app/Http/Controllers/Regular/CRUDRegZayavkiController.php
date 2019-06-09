@@ -108,11 +108,10 @@ class CRUDRegZayavkiController extends Controller
     {
         $price_list = Price::select('id','title','cash')->get();
         $this->validate($request,[
-            'fio'=>'required|min:6',
-            'tema'=>'required|min:6',
-            'z_text'=>'required|min:140',
-            'doptel'=>'required|max:20',
-
+            'fio'=>'min:6',
+            'tema'=>'min:6',
+            'z_text'=>'required|min:40',
+            'doptel'=>'max:20',
         ]);
       
         $regz= Regzayavki::find($id);
@@ -124,7 +123,7 @@ class CRUDRegZayavkiController extends Controller
         $regz->status_id=3;
         $regz->save();
         $request->session()->flash('success', 'Успешно обновлен');
-        return redirect()->route('zayavki.show',$regz->id)->with(compact('regz', 'price_list'));
+        return redirect()->route('zayavki.edit',$regz->id)->with(compact('regz', 'price_list'));
     }
 
     /**
